@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>Hello World</div>
+    <input 
+        type="text" 
+        name="firstname" 
+        value="Patipan">
+    <script>
+        /*let firstnameDOM = document.querySelector("input[name='firstname']"); //let firstnameDOM = document.querySelector(".input");
+        console.log(firstnameDOM.value);*/
+        let inputsDOM = document.getElementsByClassName("input");  //ใช้ได้เหมือนกันกับข้างบน
+        for (let i = 0; i < inputsDOM.length; i++){ 
+            console.log(inputsDOM[i].value); //แสดง inputsDOM[i].value                 
+        }
+    </script>
+</body>
+</html>
