@@ -28,7 +28,6 @@ app.get('/users', async (req, res) => {
 // path: POST /users ใช้สำหรับสร้างข้อมูล users ใหม่
 app.post('/users', async (req, res) => {
     
-    
     try{
         let user = req.body;    
         const errors = validateData(user)

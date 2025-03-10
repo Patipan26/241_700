@@ -1,7 +1,56 @@
+const BASE_URL = 'http://localhost:8000'
+let mode = 'CREATE' //default mode
+let seleceted = ''
+window.onload = async()=>{
+    const urlParams = new URLSearchParams(window.location.search)
+    const id = urlParams.get('id')
+    console.log('id',id)
+    if(id){
+        mode = 'EDIT'
+        seleceted = id
+
+        //1.เราจะดึงข้อมูลของ user ที่ต้องการแก้ไข
+        try{
+            const response = await axios.get(`${BASE_URL}/users/${id}`)
+            const user= response.data
+            
+        //2.เราจะนำข้อมูลของ user ที่ดึงมาใส่ใน input ที่เรามี
+        let firstNameDOM = document.querySelector('input[name=firstname]')
+        let lastNameDOM = document.querySelector('input[name=lastname]')
+        let ageDOM = document.querySelector('input[name=age]')
+        let descriptionDOM = document.querySelector('textarea[name=description]')
+        
+        firstNameDOM.value = user.firstName
+        lastNameDOM.value = user.lastName
+        ageDOM.value = user.age
+        descriptionDOM.value = user.description 
+        
+        let genderDOMs = document.querySelectorAll('input[name=gender]') 
+        let interestDOMs = document.querySelectorAll('input[name=interest]') 
+        
+        for (let i = 0;i < genderDOMs.length; i++){
+            if (genderDOMs[i].value == user.gender){
+                genderDOMs[i].checked = true
+            }
+        }
+        for (let i = 0; i < genderDOMs.length; i++){
+            if(genderDOMs[i].value == user.gender){
+                genderDOMs[i].checked = true
+            }
+        }
+
+        }catch (error){
+            console.log('error',error)
+        }
+
+
+
+    }
+}
 const validateData = (userData) => {
     let errors = []
     
-    if (!userData.firstname) {
+    if (!userData.firstName) {
         errors.push('กรุณากรอกชื่อ')
     }
       if (!userData.lastName) {
@@ -21,14 +70,13 @@ const validateData = (userData) => {
     }
       return errors
     }
-        const submitData =  async () => {
-        let firstNameDOM = document.querySelector('input[name=firstname]');
-        let lastNameDOM = document.querySelector('input[name=lastname]');
+    const submitData = async () => {
+        let firstNameDOM = document.querySelector('input[name=firstName]'); 
+        let lastNameDOM = document.querySelector('input[name=lastName]');
         let ageDOM = document.querySelector('input[name=age]');
-        let genderDOM = document.querySelector('input[name=gender]:checked') || {}
-        let interestDOMs = document.querySelectorAll('input[name=interest]:checked') || {}
+        let genderDOM = document.querySelectorAll('input[name=gender]:checked'); 
+        let interestDOMs = document.querySelectorAll('input[name=interest]:checked');
         let descriptionDOM = document.querySelector('textarea[name=description]');
-    
         let messageDOM = document.getElementById('message');
     
         try{
@@ -57,9 +105,17 @@ const validateData = (userData) => {
             }
         }
         */
-        const response = await axios.post('http://localhost:8000/users',userData)
+       if (mode =='CREATE'){
+        const response = await axios.post(`${BASE_URL}/users`,userData)
         console.log('response',response.data);
-        messageDOM.innerText = 'บันทึกข้อมูลเรียบร้อย'
+       }else{
+        const response = await axios.put(`${BASE_URL}/users/${selecetedID}`,userData)
+        message = 'แก้ไขข้อมูลเรียบร้อย'
+        console.log('response',response.data);
+       }
+       
+       
+        messageDOM.innerText = message
         messageDOM.className = 'message success'
     } catch (error) {
         console.log('error message',error.message);
@@ -75,11 +131,11 @@ const validateData = (userData) => {
        htmlData += '<ul>'
        for (let i =0; i < error.errors.length; i++){
             htmlData += `<li> ${error.errors[i]}</li>`
-       }
+       }  
        htmlData +='</div>'
        htmlData +='</ul>'
 
-        messageDOM.innerText = 'บันทึกข้อมูลไม่สำเร็จ'
+        messageDOM.innerText = htmlData
         messageDOM.className = 'message danger'
         }
     }
