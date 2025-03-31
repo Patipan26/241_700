@@ -65,18 +65,16 @@ th, td {
 }
 
 th {
-    background-color: rgb(98, 76, 223); /* สีฟ้า */
+    background-color: rgb(139, 121, 240); /* สีฟ้า */
     color: #2f3d4a;
     text-transform: uppercase;
     font-weight: 700;
 }
 
-tr:nth-child(even) {
-    background-color: rgb(255, 242, 245); /* สีชมพูอ่อน */
-}
+
 
 tr:hover {
-    background-color: #f3c910; /* เปลี่ยนสีเมื่อ Hover */
+    background-color: #abe9fc; /* เปลี่ยนสีเมื่อ Hover */
     transition: background-color 0.3s ease;
 }
 
@@ -87,15 +85,17 @@ button {
     cursor: pointer;
     font-size: 16px;
     transition: transform 0.2s ease-in-out;
+    
 }
 
 .Edit {
-    background-color: rgb(241, 163, 60);
+    background-color: rgb(241, 178, 60);
     color: rgb(10, 9, 9);
+    box-shadow: 0px 6px 12px rgb(0, 0, 0);
 }
 
 .Edit:hover {
-    background-color: rgb(51, 240, 208);
+    background-color: rgb(44, 211, 183);
     color: black;
     transform: scale(1.05);
 }
@@ -103,6 +103,7 @@ button {
 .delete {
     background-color: rgb(235, 110, 137);
     color: rgb(0, 0, 0);
+    box-shadow: 0px 6px 12px rgb(0, 0, 0);
 }
 
 .delete:hover {

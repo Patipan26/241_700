@@ -59,9 +59,9 @@ const loadData = async () => {
     userDOM.innerHTML = htmlData;
 
   //3. สร้าง event สำหรับลบ user
-  const deletDOMs = document.getElementsByClassName('delete')
-  for (let i = 0; i < deletDOMs.length; i++) {
-    deletDOMs[i].addEventListener('click', async (event) => {
+  const deleteDOMs = document.getElementsByClassName('delete')
+  for (let i = 0; i < deleteDOMs.length; i++) {
+    deleteDOMs[i].addEventListener('click', async (event) => {
       const id = event.target.dataset.id
       try {
         await axios.delete(`${BASE_URL}/users/${id}`)
