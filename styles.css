@@ -1,0 +1,131 @@
+@font-face { 
+    font-family: 'Kanit'; 
+    src: url(./Kanit/Kanit-Regular.ttf); 
+}
+a{
+    background-color: rgb(152, 53, 245);
+    padding: 12px 20px;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    width: 200px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+body { 
+    font-family: 'Kanit'; 
+    background-image: url('https://a-static.besthdwallpaper.com/city-buildings-minimalist-wallpaper-3554x1999-80799_53.jpg'); 
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container { 
+    max-width: 700px; 
+    margin: 20px auto; 
+    background-color: rgb(194, 139, 231); 
+    padding: 30px; 
+    box-sizing: border-box; 
+    box-shadow: 0 4px 12px rgb(255, 255, 255); 
+    border-radius: 20px; 
+}
+
+.header { 
+    font-size: 32px; 
+    text-align: center; 
+    margin-bottom: 20px; 
+    color: #ffffff; 
+}
+
+.header-form { 
+    width: 140px; 
+    color: #ffffff;
+}
+
+.flex { 
+    display: flex; 
+    flex-wrap: wrap; 
+    color: #ffffff;
+}
+
+.form-input { 
+    margin-bottom: 15px; 
+    width: 100%; 
+    color: #ffffff;
+}
+
+input { 
+    width: 100%; 
+    padding: 10px; 
+    border-radius: 8px; 
+    border: 1px solid #ccc; 
+    font-size: 16px; 
+    margin-bottom: 10px; 
+    box-sizing: border-box; 
+    transition: border-color 0.3s ease; 
+}
+
+input:focus {
+    border-color: rgb(50, 205, 63); /* Change border color on focus */
+}
+
+textarea { 
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    width: 100%; 
+    padding: 10px; 
+    font-size: 16px; 
+}
+
+.center { 
+    text-align: center; 
+}
+
+.button { 
+    border: none; 
+    width: 50%; 
+    height: 45px; 
+    border-radius: 10px; 
+    background-color: rgb(241, 162, 44); 
+    color: white; 
+    font-size: 16px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+}
+
+.button:hover { 
+    background-color: rgb(50, 205, 63); 
+}
+
+.message { 
+    margin-bottom: 20px; 
+    padding: 10px; 
+    display: none; 
+    border-radius: 5px; 
+}
+
+.message.success { 
+    background-color: lightgreen; 
+    display: block; 
+}
+
+.message.danger { 
+    background-color: red; 
+    display: block; 
+}
+
+@media screen and (max-width: 768px) { 
+    .flex { 
+        flex-direction: column; 
+    } 
+
+    .header { 
+        font-size: 28px; 
+    } 
+
+    .button { 
+        width: 100%; 
+    } 
+}
